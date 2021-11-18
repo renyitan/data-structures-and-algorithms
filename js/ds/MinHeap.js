@@ -98,6 +98,7 @@ heap.add(4);
 heap.add(9);
 heap.add(5);
 heap.add(8);
+
 heap.add(10);
 heap.add(2);
 heap.extractMin();

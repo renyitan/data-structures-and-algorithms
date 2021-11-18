@@ -48,6 +48,26 @@ class BinaryTree {
       this._inOrderTraversal(node.right);
     }
   }
+
+  checkBalance() {
+    let current = this.root;
+    let leftMaxHeight = this.checkHeight(current.left);
+    let rightMaxHeight = this.checkHeight(current.right);
+
+    return Math.abs(leftMaxHeight - rightMaxHeight) <= 1;
+  }
+
+  checkHeight(node) {
+    if (node === null) return -1;
+    let leftHeight = this.checkHeight(node.left);
+    let rightHeight = this.checkHeight(node.right);
+
+    if (leftHeight > rightHeight) {
+      return leftHeight + 1;
+    } else {
+      return rightHeight + 1;
+    }
+  }
 }
 
 const bt = new BinaryTree();
@@ -60,4 +80,5 @@ bt.add(5);
 bt.add(1);
 bt.add(9);
 
-bt.printInOrder();
+// bt.printInOrder();
+console.log(bt.checkBalance());
