@@ -11,7 +11,7 @@ let permutate = (str) => {
     let remaining = str.substring(0, i) + str.substring(i + 1, str.length);
 
     let perms = permutate(remaining);
-    console.log('perms', perms)
+    
 
     for (let perm of perms) {
       results.push(perm + char);
