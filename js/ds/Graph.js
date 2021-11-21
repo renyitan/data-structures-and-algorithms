@@ -113,4 +113,4 @@ graph.addEdge('E', 'F');
 
 // graph.bfs('A');
 graph.printLevelsUsingBFS('A');
-// graph.dfs('A');
+graph.dfs('A');
