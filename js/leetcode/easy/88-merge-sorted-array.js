@@ -19,7 +19,6 @@ var merge = function (nums1, m, nums2, n) {
 
   while (i < m && j < n) {
     if (auxArr[i] === nums2[j]) {
-      console.log('this ran')
       nums1[i] = auxArr[i];
       i++;
       nums1[i] = nums2[j];
@@ -34,10 +33,6 @@ var merge = function (nums1, m, nums2, n) {
       j++;
     }
   }
-
-  console.log(nums1);
-  console.log(j);
-  console.log(n);
 
   while (i < m) {
     if (auxArr[i] > 0) {
