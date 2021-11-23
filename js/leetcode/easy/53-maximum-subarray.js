@@ -5,17 +5,28 @@
  * @return {number}
  */
 var maxSubArray = function (nums) {
-  if (nums.length === 1) return nums[0];
-  let max = Number.NEGATIVE_INFINITY;
+  let sum = Number.NEGATIVE_INFINITY;
+  let maxSum = Number.NEGATIVE_INFINITY;
+
+  if (nums.length === 1) {
+    return nums[0];
+  }
 
   for (let i = 0; i < nums.length; i++) {
-    let sum = 0;
-    for (let j = i; j < nums.length; j++) {
-      sum += nums[j];
-      if (sum > max) max = sum;
+    if (nums[i] > sum) {
+      if (sum > 0 && nums[i] > 0) {
+        sum += nums[i];
+      } else {
+        sum = nums[i];
+      }
+    } else {
+      sum += nums[i];
     }
+
+    maxSum = sum > maxSum ? sum : maxSum;
   }
-  return max;
+
+  return maxSum;
 };
 
 console.log(maxSubArray([-2, 1, -3, 4, -1, 2, 1, -5, 4])); // 6
@@ -23,3 +34,4 @@ console.log(maxSubArray([-2, -1])); // -1
 console.log(maxSubArray([-2, 1])); // 1
 console.log(maxSubArray([1])); // 1
 console.log(maxSubArray([5, 4, -1, 7, 8])); // 23
+console.log(maxSubArray([1, 2]));
