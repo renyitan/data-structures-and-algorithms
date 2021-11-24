@@ -15,6 +15,17 @@ var twoSum = function (nums, target) {
   }
 };
 
-console.log(twoSum([2, 7, 11, 15], 9));
-console.log(twoSum([3, 2, 4], 6));
-console.log(twoSum([3, 3], 6));
+var twoSumFast = function (nums, target) {
+  let hash = {};
+  for (let i = 0; i < nums.length; i++) {
+    if (target - nums[i] in hash) {
+      return [hash[target-nums[i]], i]
+    }
+    hash[nums[i]] = i;
+  }
+};
+
+// console.log(twoSum([2, 7, 11, 15], 9));
+// console.log(twoSum([3, 2, 4], 6));
+// console.log(twoSum([3, 3], 6));
+console.log(twoSumFast([2, 7, 11, 15], 9));

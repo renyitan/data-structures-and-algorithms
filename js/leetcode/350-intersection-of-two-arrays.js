@@ -12,8 +12,7 @@ var intersect = function (nums1, nums2) {
       results.push(nums2[j]);
     }
   }
-  console.log(hash);
-  console.log(results)
+  return results;
 };
 
 console.log(intersect([1, 2, 2, 1], [2, 2]));

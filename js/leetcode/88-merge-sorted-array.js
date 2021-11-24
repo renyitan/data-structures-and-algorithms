@@ -8,45 +8,16 @@
  * @return {void} Do not return anything, modify nums1 in-place instead.
  */
 var merge = function (nums1, m, nums2, n) {
-  let i = 0;
-  let j = 0;
-  let auxArr = [];
-  nums1.forEach((num) => {
-    if (num > 0) {
-      auxArr.push(num);
-    }
-  });
-
-  while (i < m && j < n) {
-    if (auxArr[i] === nums2[j]) {
-      nums1[i] = auxArr[i];
-      i++;
-      nums1[i] = nums2[j];
-      j++;
-      continue;
-    }
-    if (auxArr[i] < nums2[j]) {
-      nums1[i] = auxArr[i];
-      i++;
+  while (n > 0) {
+    if (nums1[m - 1] > nums2[n - 1]) {
+      nums1[m + n - 1] = nums1[--m];
     } else {
-      nums1[i] = nums2[j];
-      j++;
+      nums1[m + n - 1] = nums2[--n];
     }
-  }
-
-  while (i < m) {
-    if (auxArr[i] > 0) {
-      nums1[i] = auxArr[i];
-    }
-    i++;
-  }
-
-  while (j < n) {
-    nums1[i + j - 1] = nums2[j];
-    j++;
   }
 
   return nums1;
 };
 
-console.log(merge([1, 2, 3, 0, 0, 0], 3, [2, 5, 6], 3));
+console.log(merge([1, 2, 7, 0, 0, 0], 3, [4, 5, 6], 3));
+console.log(merge([1], 1, [], 0));
