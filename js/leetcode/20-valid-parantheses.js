@@ -30,8 +30,39 @@ var isValid = function (s) {
   return stack.length === 0;
 };
 
-console.log(isValid('(('));
+var isValid2 = function (s) {
+  let stack = [];
+
+  for (let i = 0; i < s.length; i++) {
+    if (s[i] === '(' || s[i] === '[' || s[i] === '{') {
+      stack.push(s[i])
+    }
+    else if (s[i] === ')' || s[i] === ']' || s[i] === '}') {
+      // gotta check
+      let parenthesis = stack.pop();
+      if (s[i] === ')' && parenthesis !== '(') {
+        return false;
+      }
+      if (s[i] === ']' && parenthesis !== '[') {
+        return false;
+      }
+      if (s[i] === '}' && parenthesis !== '{') {
+        return false;
+      }
+    }
+  }
+  return stack.length === 0;
+}
+
+// console.log(isValid('(('));
 // console.log(isValid('()[]{}'));
 // console.log(isValid('(]'));
 // console.log(isValid('([)]'));
 // console.log(isValid('{[]}'));
+
+console.log(isValid2('(('));
+console.log(isValid2('()'));
+console.log(isValid2('()[]{}'));
+console.log(isValid2('(]'));
+console.log(isValid2('([)]'));
+console.log(isValid2('{[]}'));
