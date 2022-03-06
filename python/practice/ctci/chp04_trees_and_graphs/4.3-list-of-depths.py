@@ -1,4 +1,4 @@
-from ds.binary_tree import BinaryTree
+from ..ds.binary_tree import BinaryTree
 
 if __name__ == "__main__":
     bt = BinaryTree()
