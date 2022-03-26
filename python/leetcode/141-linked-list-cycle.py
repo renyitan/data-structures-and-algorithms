@@ -5,7 +5,7 @@
 #         self.next = None
 
 class Solution:
-    def hasCycle(self, head: Optional[ListNode]) -> bool:
+    def hasCycleHashMap(self, head: Optional[ListNode]) -> bool:
 
         hash = {}
         slow = head
@@ -19,3 +19,21 @@ class Solution:
             else:
                 hash[slow] = 1
             slow = slow.next
+
+class Solution:
+    def hasCycleTwoPointers(self, head: Optional[ListNode]) -> bool:
+        if not head or not head.next:
+            return False
+        slow, fast = head, head.next
+        
+        while slow and fast:
+            if not fast:
+                return False
+            elif not fast.next or not fast.next.next:
+                return False
+            
+            if fast == slow:
+                return True
+            
+            slow = slow.next
+            fast = fast.next.next
