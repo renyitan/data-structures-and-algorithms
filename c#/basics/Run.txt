@@ -1,0 +1,5 @@
+Compile using csc
+- csc filename.csc
+
+Run executable
+- .\filename
