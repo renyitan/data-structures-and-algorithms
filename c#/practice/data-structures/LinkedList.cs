@@ -118,7 +118,6 @@ public class Program
 {
   public static void Main()
   {
-    Console.WriteLine("Hello");
     LinkedList ll = new LinkedList();
     ll.append(5);
     ll.append(6);
