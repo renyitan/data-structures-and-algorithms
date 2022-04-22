@@ -73,7 +73,7 @@ LINQ features can be used with any type that implements `IEnumerable` or `IEnume
 - HashSet<T>
 - SortedSet<T>
 
-### Lists
+#### Lists
 ```cs
 var list = new List<string>();
 list.Add(T); // adds object to end of list
