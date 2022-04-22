@@ -60,6 +60,37 @@ int[][] jaggedArray3 =
 };
 ```
 
+### Strings
+```cs
+// instantiate
+string str = "this is a string";
+string str = new string(chars); // from char array
+string str = new string('c', 20) // created from char, repeated n times
+
+// Properties
+// string[index] returns char
+char c = string[0];
+
+// Length
+string s = "abcdefg";
+s.Length; // 7
+
+// Methods
+s.Contains(Char); 
+s.Contains(String);
+s.IndexOf(Char | String);
+s.Split(); // returns a string array that contains the substring by delimiter
+s.Split(' '); // delimit by ' '
+s.ToCharArray(); // returns char[]
+s.ToLower();
+s.ToUpper();
+s.ToString();
+s.Trim(); // removes all leading and trailing whitespace characters
+s.Trim(Char) // removes all leading and trailing instance of char
+s.Trim(Char[]) // removes all leading and trailing occurences of a set
+char[] charsToTrim = { '*', ' ', '\''};
+string result = s.Trim(charsToTrim)
+```
 ### Collections
 
 LINQ features can be used with any type that implements `IEnumerable` or `IEnumerable<T>`
