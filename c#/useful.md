@@ -3,7 +3,7 @@
 `char` -> `int` -> `long` -> `float` -> `double`
 
 **Implicit / Explicity Type casting**
-```dotnetcli
+```cs
 // implicit casting -- done automatically when passing a smaller type to larger type
 int n = 9;
 double d = n; // int to double, output: 9.00
@@ -16,7 +16,7 @@ int n = (int) d; // double to int, output: 9
 
 **Type Conversion Methods**
 
-```dotnetcli
+```cs
 Convert.ToBoolean();
 Convert.ToDouble();
 Convert.ToString();
