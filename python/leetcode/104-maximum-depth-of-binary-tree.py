@@ -25,20 +25,15 @@ class Solution:
                 if node.right:
                     q.append((node.right, level+1))
         return max_level
-    
-    def maxDepthDFS(self, root: Optional[TreeNode]) -> int:
+
+    def maxDepthDFS(self, root: Optional[TreeNode], level=1) -> int:
         if not root:
-            return 0
+            return level - 1
 
-        def dfs(node, level):
-            # root = 3
-            if not node:
-                return level
-            else:
-                level += 1
-                left_depth = dfs(node.left, level) # 2
-                right_depth = dfs(node.right, level) # 2
-                return max(left_depth, right_depth)
-    
+        if not root.left and not root.right:
+            return level
 
-        return dfs(root, 0)
+        left = self.maxDepthDFS(root.left, level+1)
+        right = self.maxDepthDFS(root.right, level+1)
+
+        return max(left, right)
