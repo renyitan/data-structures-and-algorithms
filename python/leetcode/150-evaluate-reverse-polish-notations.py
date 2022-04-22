@@ -3,12 +3,12 @@ class Solution:
         operators = ['+', '-', '*', '/']
         stack = []
         res = 0
-        
+
         for token in tokens:
             if token in operators:
                 op2 = int(stack.pop())
                 op1 = int(stack.pop())
-                
+
                 if (token == '+'):
                     stack.append(op1 + op2)
                 elif (token == '-'):
@@ -22,5 +22,5 @@ class Solution:
                         stack.append(op1/op2)
             else:
                 stack.append(int(token))
-                
+
         return int(stack[0])
