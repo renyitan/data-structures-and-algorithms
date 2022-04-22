@@ -206,11 +206,26 @@ dict.Item[TKey]
 dict.Keys
 dict.Values
 
+// Methods
 dict.Add(TKey, TValue);
 dict.ContainsKey(TKey);
 dict.ContainsValue(TValue);
 dict.Remove(TKey);
 dict.ToString();
+
+// Loop
+foreach(KeyValuePair<string, string> entry in myDictionary)
+{
+    // do something with entry.Value or entry.Key
+}
+
+foreach(var item in myDictionary)
+{
+  foo(item.Key);
+  bar(item.Value);
+}
+
+
 ```
 
 ### LINQ
