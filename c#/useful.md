@@ -182,4 +182,66 @@ dict.Remove(TKey);
 dict.ToString();
 ```
 
+### LINQ
+
+
+```cs
+// Summing
+double fullSalary = builders.Sum(x => x.builderSalary);
+
+// Select
+string[] builderNames = builders.Select(x => x.builderName).ToArray();
+
+// Where
+int[] someSalary = builders.Where(x => x.builderSalary < 100);
+
+// Any and All
+int[] arr = {1,2,3,4}
+bool biggerThan5 = arr.Any(x => x>5); // false
+bool any = arr.Any(); // true
+bool all = arr.All(x => x<5); // true
+
+// Max, Min & Average
+int[] arr = { 1, 2, 30, 100, 5, 10 };
+int maxValue = arr.Max(); // 100
+int minValue = arr.Min(); // 1
+int average = arr.Average(); 
+
+// Last & First
+int[] arr = { 1, 2, 3, 4, 5, 100, 200, 3, 50 };
+int last_ = arr.Last(x => x>50); // 200
+int last_elem = arr.Last(); // 50
+int first_ = arr.First(x=> x>50); // 100
+int first_elem = arr.First(); // 1
+
+// Intersect
+int[] arr = { 1, 2, 3, 4, 6 };
+int[] other_ = { 1, 2, 3, 4, 5 };
+
+arr = arr.Intersect(other_).ToArray(); // [1,2,3,4]
+
+// Prepend and Append
+int[] arr = {1,2,3,4}
+arr = arr.Prepend(0).ToArray(); // [0,1,2,3,4]
+arr = arr.Append(5).ToArray(); // [0,1,2,3,4,5]
+
+
+// Order By -- default: asc
+int[] arr = {4,3,2,1}
+arr = arr.OrderBy(x => x).ToArray(); // [1,2,3,4]
+
+// Order By Descending
+int[] arr = {1,2,3,4}
+arr = arr.OrderByDescending(x=> x).ToArray();
+
+// Distinct
+int[] arr = {1,2,1}
+arr = arr.Distinct().ToArray(); // [1,2]
+
+// Reverse
+int[] arr = {1,5,6,7};
+int[] reverse = arr.Reverse().ToArray();
+```
+
+
 
