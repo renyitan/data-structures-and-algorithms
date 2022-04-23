@@ -15,4 +15,14 @@ public class Solution
 
     return evenCount;
   }
+
+  public int FindNumbersLinQ(int[] nums)
+  {
+    int numEven = 0;
+
+    int results = nums.Select(x => Convert.ToString(x).ToCharArray()).Where(x => x.Length % 2 == 0).Count();
+
+    return results;
+  }
 }
+

@@ -114,6 +114,7 @@ LINQ features can be used with any type that implements `IEnumerable` or `IEnume
 // instantiate
 var list = new List<T>();
 List<T> list = new List<T>();
+List<T> list = new List<IEnumerable<T>>
 
 list.Add(T); // adds object to end of list
 list.Contains(T); // determines if element is in the list
@@ -122,9 +123,10 @@ list.Remove(T); // removes first occurence of specific object
 list.Reverse(); // Reverses the order of the elements
 list.ToArray(); // copies the elements of list to new array
 list.ToString(); // returns a string representing the current object
-list.Exists(Predicate<T>) // determine whether the List<T> contains elements that match the conditions of predicate
+list.Exists(Predicate<T>); // determine whether the List<T> contains elements that match the conditions of predicate
 list.Exists(e => e.EndsWith('saurus'));
-list.Any(Predicate<T>)
+list.Any(Predicate<T>);
+list.Insert(Int32, T);
 list.FindAll(Predicate<T>); // searches for an element that matches the conditions defined by specific predicate, returns first occurence
 ```
 

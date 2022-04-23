@@ -3,32 +3,24 @@ public class Solution
   public IList<IList<string>> GroupAnagrams(string[] strs)
   {
     Dictionary<string, List<string>> dict = new Dictionary<string, List<string>>();
-    var result = new List<IList<string>>();
 
     foreach (string s in strs)
     {
       char[] c = s.ToCharArray();
       Array.Sort(c);
-      string temp = new String(c);
+      string key = new string(c);
 
-      if (dict.ContainsKey(temp))
+      if (dict.ContainsKey(key))
       {
-        dict[temp].Add(s);
+        dict[key].Add(s);
       }
       else
       {
-        dict.Add(temp, new List<string>() { s });
-
+        dict.Add(key, new List<string>() { s });
       }
     }
 
-    var keys = dict.Keys.ToList();
-
-    foreach (var key in keys)
-    {
-      result.Add(dict[key]);
-    }
-
-    return result;
+    var res = dict.Select(x => x.Value).ToArray();
+    return res;
   }
 }
