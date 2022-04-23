@@ -11,20 +11,24 @@
  *     }
  * }
  */
-public class Solution {
-    public IList<int> InorderTraversal(TreeNode root) {
-        List<int> result = new List<int>();
-        
-        void traverse(TreeNode node) {
-            if (node != null) {
-                traverse(node.left);
-                result.Add(node.val);
-                traverse(node.right);
-            }
-        }
-        
-        traverse(root);
-        return result;
+public class Solution
+{
+  public IList<int> InorderTraversal(TreeNode root)
+  {
+    var result = new List<int>();
+
+    void traverse(TreeNode node)
+    {
+      if (node != null)
+      {
+        traverse(node.left);
+        result.Add(node.val);
+        traverse(node.right);
+      }
     }
-    
+
+    traverse(root);
+    return result;
+  }
+
 }
