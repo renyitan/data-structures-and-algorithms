@@ -2,25 +2,24 @@ public class Solution
 {
   public IList<IList<string>> GroupAnagrams(string[] strs)
   {
-    Dictionary<string, List<string>> dict = new Dictionary<string, List<string>>();
+    var dict = new Dictionary<string, List<string>>();
 
-    foreach (string s in strs)
+    foreach (string str in strs)
     {
-      char[] c = s.ToCharArray();
-      Array.Sort(c);
-      string key = new string(c);
+      char[] arr = str.ToCharArray();
+      Array.Sort(arr);
+      string key = new string(arr);
 
       if (dict.ContainsKey(key))
       {
-        dict[key].Add(s);
+        dict[key].Add(str);
       }
       else
       {
-        dict.Add(key, new List<string>() { s });
+        dict[key] = new List<string>() { str };
       }
     }
 
-    var res = dict.Select(x => x.Value).ToArray();
-    return res;
+    return dict.Values.ToArray();
   }
 }
