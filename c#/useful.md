@@ -25,6 +25,27 @@ Convert.ToInt32(); // int
 Convert.ToInt64(); // long
 ```
 
+## Comparer
+
+[Microsoft Docs - IComparer<T>.Compare(T, T) Method](<https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.icomparer-1.compare?view=net-6.0#system-collections-generic-icomparer-1-compare(-0-0)>)
+
+```cs
+// Constructors
+public int Compare (T? x, T? y);
+```
+
+| Value | Meaning        |
+| ----- | -------------- |
+| -ve   | `x` < `y`      |
+| 0     | `x` equals `y` |
+| +ve   | `x` > `y`      |
+
+```cs
+// Example
+Array.Sort(arr, (x,y) => x-y);
+
+```
+
 ## Arrays
 
 ```cs
@@ -61,6 +82,7 @@ int[][] jaggedArray3 =
 ```
 
 ### Strings
+
 ```cs
 // instantiate
 string str = "this is a string";
@@ -76,7 +98,7 @@ string s = "abcdefg";
 s.Length; // 7
 
 // Methods
-s.Contains(Char); 
+s.Contains(Char);
 s.Contains(String);
 s.IndexOf(Char | String);
 s.Split(); // returns a string array that contains the substring by delimiter
@@ -91,6 +113,7 @@ s.Trim(Char[]) // removes all leading and trailing occurences of a set
 char[] charsToTrim = { '*', ' ', '\''};
 string result = s.Trim(charsToTrim)
 ```
+
 ### Collections
 
 LINQ features can be used with any type that implements `IEnumerable` or `IEnumerable<T>`
@@ -197,14 +220,16 @@ sorted.ToString();
 ```
 
 #### Dictionary
+
 Represents a collection of keys and values.
-```cs
+
+````cs
 // instantiate
 Dictionary<TKey, TValue> dict = new Dictionary<TKey, TValue>();
 
 // properties
 dict.Count // gets number of key/value pairs
-dict.Item[TKey] 
+dict.Item[TKey]
 dict.Keys
 dict.Values
 
@@ -227,8 +252,31 @@ foreach(var item in myDictionary)
   bar(item.Value);
 }
 
+#### PriorityQueue <TElement, TPriority>
 
-```
+Represents a collection of items that have a value and a priority. On dequeue, the item with the lowest priority value is removed.
+
+```cs
+// instantiate
+PriorityQueue<TElement,TPriority> queue = new PriorityQueue<TElement, TPriority>();
+PriorityQueue<TElement, TPriority> = queue = new PriorityQueue<TElement, TPriority>(IComparer<TPriority>);
+// example (Integer descending , highest int has priority)
+var queue = new PriorirtyQueue<int, int>(Comparer<int>.Create((x,y) => y.val - x.val));
+
+
+// properties
+queue.Comparer // gets the priority comparer used by the queue
+queue.Count // gets the number of elements
+
+// methods
+queue.Enqueue(TElement, TPriority);
+queue.Dequeue();
+sorted.Peek();
+
+
+````
+
+````
 
 ### LINQ
 
@@ -253,7 +301,7 @@ bool all = arr.All(x => x<5); // true
 int[] arr = { 1, 2, 30, 100, 5, 10 };
 int maxValue = arr.Max(); // 100
 int minValue = arr.Min(); // 1
-int average = arr.Average(); 
+int average = arr.Average();
 
 // Last & First
 int[] arr = { 1, 2, 3, 4, 5, 100, 200, 3, 50 };
@@ -289,7 +337,4 @@ arr = arr.Distinct().ToArray(); // [1,2]
 // Reverse
 int[] arr = {1,5,6,7};
 int[] reverse = arr.Reverse().ToArray();
-```
-
-
-
+````
