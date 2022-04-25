@@ -79,6 +79,12 @@ int[][] jaggedArray3 =
     new int[] { 0, 2, 4, 6 },
     new int[] { 11, 22 }
 };
+
+// Methods
+Array.Fill<T[]>(T[], T); // assigns the given value to each element
+Array.Find<T>(T[], T) // searches for an element that matches the condition, returns first occurence
+Array.Find(nums, x=>x >1);
+Array.IndexOf<T>(T[], T)// searches for an element and returns index of first occurence that matches
 ```
 
 ### Strings
@@ -290,6 +296,10 @@ string[] builderNames = builders.Select(x => x.builderName).ToArray();
 
 // Where
 int[] someSalary = builders.Where(x => x.builderSalary < 100);
+
+// Contains
+int[] nums = new int[]{1,2,3,4,5,6,7};
+bool does5Exists = nums.Contains(x => x == 5);
 
 // Any and All
 int[] arr = {1,2,3,4};
