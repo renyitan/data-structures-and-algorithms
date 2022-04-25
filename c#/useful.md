@@ -248,7 +248,7 @@ sorted.ToString();
 
 Represents a collection of keys and values.
 
-````cs
+```cs
 // instantiate
 Dictionary<TKey, TValue> dict = new Dictionary<TKey, TValue>();
 
@@ -277,7 +277,10 @@ foreach(var item in myDictionary)
   bar(item.Value);
 }
 
-#### PriorityQueue <TElement, TPriority>
+```
+
+
+### PriorityQueue <TElement, TPriority>
 
 Represents a collection of items that have a value and a priority. On dequeue, the item with the lowest priority value is removed.
 
@@ -298,8 +301,7 @@ queue.Enqueue(TElement, TPriority);
 queue.Dequeue();
 sorted.Peek();
 
-
-````
+```
 
 ### LINQ
 
@@ -364,4 +366,4 @@ arr = arr.Distinct().ToArray(); // [1,2]
 // Reverse
 int[] arr = {1,5,6,7};
 int[] reverse = arr.Reverse().ToArray();
-````
+```
