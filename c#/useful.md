@@ -55,7 +55,7 @@ int[] nums = new int[]{1,2,3,4,,5};
 int last = nums[^1]; // returns 5
 ```
 
-**Ranges**
+**Ranges** (returns a new array)
 ```cs
 var array = new int[] { 1, 2, 3, 4, 5 };
 var slice1 = array[2..];    // [3,4,5]
@@ -97,7 +97,9 @@ int[][] jaggedArray3 =
 };
 
 // Methods
-
+Array.Sort(T[]) // default ascending
+Array.Sort(T[], Predicate<T>)
+Array.Reverse(T[]);
 Array.Fill<T[]>(T[], T); // assigns the given value to each element
 Array.Find<T>(T[], T) // searches for an element that matches the condition, returns first occurence
 Array.Find(nums, x=>x >1);

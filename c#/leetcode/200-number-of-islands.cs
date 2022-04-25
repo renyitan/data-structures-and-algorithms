@@ -18,7 +18,7 @@ public class Solution
   }
 
   public void dfs(char[][] grid, int r, int c)
-  {ds
+  {
     int rows = grid.Length, cols = grid[0].Length;
 
     if (r < 0 || r >= rows || c < 0 || c >= cols || grid[r][c] == '0')
