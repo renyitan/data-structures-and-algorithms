@@ -48,6 +48,22 @@ Array.Sort(arr, (x,y) => x-y);
 
 ## Arrays
 
+
+**Get last element**
+```cs
+int[] nums = new int[]{1,2,3,4,,5};
+int last = nums[^1]; // returns 5
+```
+
+**Ranges**
+```cs
+var array = new int[] { 1, 2, 3, 4, 5 };
+var slice1 = array[2..];    // [3,4,5]
+var slice2 = array[..^3];   // [1,2]
+var slice3 = array[2..^3];  // empty
+var slice4 = array[..];     // [1,2,3,4,5]
+```
+
 ```cs
 // 1-dimensional arrays
 int[] array = new int[5];
@@ -81,6 +97,7 @@ int[][] jaggedArray3 =
 };
 
 // Methods
+
 Array.Fill<T[]>(T[], T); // assigns the given value to each element
 Array.Find<T>(T[], T) // searches for an element that matches the condition, returns first occurence
 Array.Find(nums, x=>x >1);
