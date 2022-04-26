@@ -252,6 +252,12 @@ Represents a collection of keys and values.
 // instantiate
 Dictionary<TKey, TValue> dict = new Dictionary<TKey, TValue>();
 
+var dict = new Dictionary<char, int>() {
+    {'1', 1},
+    {'2', 2},
+    {'3', 3}
+};
+
 // properties
 dict.Count // gets number of key/value pairs
 dict.Item[TKey]
