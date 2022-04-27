@@ -295,7 +295,7 @@ Represents a collection of items that have a value and a priority. On dequeue, t
 PriorityQueue<TElement,TPriority> queue = new PriorityQueue<TElement, TPriority>();
 PriorityQueue<TElement, TPriority> = queue = new PriorityQueue<TElement, TPriority>(IComparer<TPriority>);
 // example (Integer descending , highest int has priority)
-var queue = new PriorirtyQueue<int, int>(Comparer<int>.Create((x,y) => y.val - x.val));
+var queue = new PriorirtyQueue<int, int>(Comparer<int>.Create((x,y) => y - x));
 
 
 // properties
