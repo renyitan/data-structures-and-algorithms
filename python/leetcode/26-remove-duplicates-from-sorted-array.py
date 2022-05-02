@@ -1,19 +1,18 @@
+"""
+Input: nums = [0,0,1,1,1,2,2,3,3,4]
+Output: 5, nums = [0,1,2,3,4,_,_,_,_,_]
+
+[1,2] => [1,2]
+"""
+
+
 class Solution:
     def removeDuplicates(self, nums: List[int]) -> int:
-        if len(nums) <= 1:
-            return len(nums)
+        last_index = 0
 
-        seen = -math.inf
-        last_index = 1
+        for i in range(1, len(nums)):
+            if nums[i] != nums[last_index]:
+                last_index += 1
+                nums[i], nums[last_index] = nums[last_index], nums[i]
 
-        for i in range(len(nums)):
-            if nums[i] > seen:
-                seen = nums[i]
-                if last_index < i:
-                    nums[last_index], nums[i] = nums[i], nums[last_index]
-                    last_index += 1
-                elif last_index == i:
-                    last_index += 1
-
-        print(nums[:last_index])
-        return len(nums[:last_index])
+        return len(nums[:last_index+1])
