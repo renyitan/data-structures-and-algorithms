@@ -15,6 +15,6 @@ class Solution:
             if root.left is None and root.right is None:
                 return True
 
-        remainder = targetSum - root.val
+    remainder = targetSum - root.val
 
         return self.hasPathSum(root.left, remainder) or self.hasPathSum(root.right, remainder)
