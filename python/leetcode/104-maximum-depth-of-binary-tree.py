@@ -26,9 +26,10 @@ class Solution:
                     q.append((node.right, level+1))
         return max_level
 
-    def maxDepthDFS(self, root: Optional[TreeNode], level=1) -> int:
+    def maxDepthDFS(self, root: Optional[TreeNode], level=0) -> int:
         if not root:
-            return level - 1
+            return level
+        level+=1
 
         if not root.left and not root.right:
             return level

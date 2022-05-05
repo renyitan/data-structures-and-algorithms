@@ -16,3 +16,20 @@ class Solution:
                 hash[key] -= used
 
         return longest + 1 if any(True for key, value in hash.items() if value == 1) else longest
+
+
+class Solution:
+    def longestPalindrome(self, s: str) -> int:
+        count = collections.Counter(s)
+        
+        res = 0
+        for key, value in count.items():
+            if value >= 2:
+                res += (value//2) * 2
+                count[key] -= (value//2) * 2
+        
+        for key,value in count.items():
+            if value == 1:
+                return res + 1
+
+        return res
