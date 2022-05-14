@@ -21,6 +21,9 @@ double d = n; // int to double, output: 9.00
 double d = 9.78
 int n = (int) d; // double to int, output: 9
 
+// get numerical value for char
+char.GetNumericValue(ch);
+
 ```
 
 **Type Conversion Methods**
