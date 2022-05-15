@@ -1,23 +1,19 @@
 public class Solution {
     public int[][] Insert(int[][] intervals, int[] newInterval) {
-        var intervalsList = new List<int[]>();
+        var intervalList = new List<int[]>(intervals);
+        intervalList.Add(newInterval);
+        intervalList = intervalList.OrderBy(x => x[0]).ToList();
         
-        foreach(var interval in intervals) {
-            intervalsList.Add(interval);
-        }
-        intervalsList.Add(newInterval);
-        var sortedList = intervalsList.OrderBy((interval) => interval[0]).ToArray();
-        
-        var res = new List<int[]>();
-        foreach(var interval in sortedList) {
-            if (res.Count == 0 || res[^1][1] < interval[0]) {
-                res.Add(interval);
+        var merged = new List<int[]>();
+        foreach(var interval in intervalList) {
+            if (merged.Count == 0 || interval[0] > merged[^1][1]) {
+                merged.Add(interval);
             }
             else {
-                res[^1][1] = Math.Max(res[^1][1], interval[1]);
+                merged[^1][1] = Math.Max(merged[^1][1], interval[1]);
             }
         }
         
-        return res.ToArray();
+        return merged.ToArray();
     }
 }
