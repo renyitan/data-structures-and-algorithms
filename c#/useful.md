@@ -295,6 +295,11 @@ foreach(var item in myDictionary)
   bar(item.Value);
 }
 
+// Check Equality (Same Keys, Same Values)
+public static bool IsDictEqual<T>(Dictionary<T,T> dict1, Dictionary<T,T> dict2) {
+    return dict1.Count == dict2.Count && !dict1.Except(dict2).Any();
+}
+
 ```
 
 ### PriorityQueue <TElement, TPriority>
