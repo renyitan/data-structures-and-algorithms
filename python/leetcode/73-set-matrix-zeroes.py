@@ -32,3 +32,25 @@ class Solution:
         for zeroes in original_zeroes:
             row, col = zeroes
             set_to_zeroes(row, col)
+
+
+class Solution:
+    def setZeroes(self, matrix: List[List[int]]) -> None:
+        """
+        Do not return anything, modify matrix in-place instead.
+        """
+        ROWS, COLS = len(matrix), len(matrix[0])
+        seen = []
+
+        for row in range(ROWS):
+            for col in range(COLS):
+                if matrix[row][col] == 0:
+                    seen.append((row, col))
+
+        while seen:
+            r, c = seen.pop()
+
+            for row in range(ROWS):
+                matrix[row][c] = 0
+            for col in range(COLS):
+                matrix[r][col] = 0

@@ -27,14 +27,10 @@ class Solution:
         return max_level
 
     def maxDepthDFS(self, root: Optional[TreeNode], level=0) -> int:
-        if not root:
+        if root is None:
             return level
-        level+=1
-
-        if not root.left and not root.right:
-            return level
-
-        left = self.maxDepthDFS(root.left, level+1)
-        right = self.maxDepthDFS(root.right, level+1)
-
-        return max(left, right)
+        else:
+            level += 1
+            left_height = self.maxDepth(root.left, level)
+            right_height = self.maxDepth(root.right, level)
+            return max(left_height, right_height)

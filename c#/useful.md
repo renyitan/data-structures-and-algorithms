@@ -1,3 +1,11 @@
+## Notes
+
+To find mid point between two pointers:
+
+```cs
+int mid = left + (right-left) / 2;
+```
+
 ## Type Casting
 
 `char` -> `int` -> `long` -> `float` -> `double`
@@ -12,6 +20,9 @@ double d = n; // int to double, output: 9.00
 // explicit casting -- done manually when passing larger type to smaller type
 double d = 9.78
 int n = (int) d; // double to int, output: 9
+
+// get numerical value for char
+char.GetNumericValue(ch);
 
 ```
 
@@ -48,14 +59,15 @@ Array.Sort(arr, (x,y) => x-y);
 
 ## Arrays
 
-
 **Get last element**
+
 ```cs
 int[] nums = new int[]{1,2,3,4,,5};
 int last = nums[^1]; // returns 5
 ```
 
 **Ranges** (returns a new array)
+
 ```cs
 var array = new int[] { 1, 2, 3, 4, 5 };
 var slice1 = array[2..];    // [3,4,5]
@@ -285,7 +297,6 @@ foreach(var item in myDictionary)
 
 ```
 
-
 ### PriorityQueue <TElement, TPriority>
 
 Represents a collection of items that have a value and a priority. On dequeue, the item with the lowest priority value is removed.
@@ -310,7 +321,6 @@ sorted.Peek();
 ```
 
 ### LINQ
-
 
 ```cs
 // Summing

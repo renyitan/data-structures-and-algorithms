@@ -12,12 +12,23 @@ class Solution:
 
     def missingNumberConstantSpace(self, nums: List[int]) -> int:
         nums.sort()
-        
+
         if nums[0] != 0:
             return 0
         if nums[-1] != len(nums):
             return len(nums)
-        
-        for i in range(1,len(nums)):
+
+        for i in range(1, len(nums)):
             if nums[i] - nums[i-1] != 1:
+                return i
+
+
+class Solution:
+    def missingNumber(self, nums: List[int]) -> int:
+        res = [0 for _ in range(len(nums) + 1)]
+        for num in nums:
+            res[num] = 1
+
+        for i in range(len(res)):
+            if res[i] == 0:
                 return i

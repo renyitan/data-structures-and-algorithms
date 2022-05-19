@@ -1,20 +1,18 @@
 class Solution:
     def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
-        res = []
-        s = set()
+        res = set()
 
-        def backtrack(temp):
-            if sum(temp) > target:
+        def backtrack(temp, nums, t):
+            if t == 0:
+                res.add(tuple(sorted(temp.copy())))
+                return
+            elif t < 0:
                 return
 
-            if sum(temp) == target and tuple(sorted(temp)) not in s:
-                s.add(tuple(sorted(temp)))
-                res.append(temp.copy())
-
-            for candidate in candidates:
-                temp.append(candidate)
-                backtrack(temp)
+            for n in nums:
+                temp.append(n)
+                backtrack(temp, nums, t-n)
                 temp.pop()
 
-        backtrack([])
-        return res
+        backtrack([], candidates, target)
+        return [list(r) for r in res]
