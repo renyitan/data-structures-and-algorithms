@@ -3,21 +3,17 @@ public class Solution
   public int FindMaxConsecutiveOnes(int[] nums)
   {
     int longest = 0;
-    int current = 0;
+    int left = 0;
 
-    for (int i = 0; i < nums.Length; i++)
+    for (int right = 0; right < nums.Length; right++)
     {
-      if (nums[i] == 1)
+      if (nums[right] == 0)
       {
-        current++;
-        longest = Math.Max(longest, current);
+        left = right + 1;
+        continue;
       }
-      else
-      {
-        current = 0;
-      }
+      longest = Math.Max(longest, right - left + 1);
     }
     return longest;
   }
-
 }
