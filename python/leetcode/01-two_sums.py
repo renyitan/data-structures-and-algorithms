@@ -1,10 +1,10 @@
-def twoSums(nums, target):
-    hash = {}
-    for i in range(len(nums)):
-        if (target - nums[i]) in hash:
-            return (i, hash[target-nums[i]])
-        hash[nums[i]] = i
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        hash = {}
 
-
-
-print(twoSums([2, 7, 11, 15], 9))
+        for i, num in enumerate(nums):
+            if target - num in hash:
+                return [i, hash[target-num]]
+            else:
+                hash[num] = i
+        return -1

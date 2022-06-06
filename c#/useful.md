@@ -180,6 +180,7 @@ list.Add(T); // adds object to end of list
 list.Contains(T); // determines if element is in the list
 list.Sort() // sorts the elements in the entire List using default comparer
 list.Remove(T); // removes first occurence of specific object
+list.RemoveAt(int) // removes at specific index
 list.Reverse(); // Reverses the order of the elements
 list.ToArray(); // copies the elements of list to new array
 list.ToString(); // returns a string representing the current object
@@ -316,7 +317,7 @@ queue.Count // gets the number of elements
 // methods
 queue.Enqueue(TElement, TPriority);
 queue.Dequeue();
-sorted.Peek();
+queue.Peek();
 
 ```
 
