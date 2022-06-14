@@ -1,20 +1,18 @@
-// https://leetcode.com/problems/valid-palindrome/
-
 /**
  * @param {string} s
  * @return {boolean}
  */
 var isPalindrome = function (s) {
-  let str = s.toLowerCase().replace(/[^a-z0-9]/gi, '');
-  for (let i = 0, j = str.length - 1; i <= j; i++, j--) {
-    if (str.charAt(i) !== str.charAt(j)) {
+  let chars = s.replace(/[\W_]+/g, "").toLowerCase().split('');
+  let left = 0; right = chars.length - 1;
+  while (left <= right) {
+    if (chars[left] != chars[right]) {
       return false;
+    }
+    else {
+      left++;
+      right--;
     }
   }
   return true;
 };
-
-console.log(isPalindrome('A man, a plan, a canal: Panama'));
-console.log(isPalindrome('race a car'));
-console.log(isPalindrome(' '));
-console.log(isPalindrome('aA'));
