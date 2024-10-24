@@ -28,3 +28,14 @@ class Solution:
             if nums[i] == nums[i+1]:
                 return True
         return False
+
+
+class Solution:
+    def containsDuplicate(self, nums: List[int]) -> bool:
+        nums = sorted(nums)
+        prev = None
+        for num in nums:
+            if num == prev:
+                return True
+            prev = num
+        return False
